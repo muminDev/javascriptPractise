@@ -1,32 +1,31 @@
-let cartQuant = 0;
+/*
+function rock() {
+  let number = 0;
 
-function cartQuantity() {
-  console.log(`Cart quantity: ${cartQuant }`);
-   
+  number += Math.random();
+  console.log(number);
+
+  if (number = 0 || number < 1 / 3) {
+    console.log('Rock');
+  } else if (number = 1 / 3 || number < 2 / 3) {
+    console.log('Paper');
+  } else{
+    console.log('Scissors');
+  }
 };
+*/
 
-function addCart() {
-  console.log(`Cart quantity: ${cartQuant += 1}`);
-};
+function rock() {
+  let number = Math.random();
+  console.log(number);
 
-function plusTwo() {
-  console.log(`Cart quantity: ${cartQuant += 2}`)
-};
+  if (number <= 1 / 3) {
+    console.log('Rock');
+  } else if (number <= 2 / 3) {
+    console.log('Paper');
+  } else {
+    console.log('Scissors');
+  }
+}
 
-function plusThree() {
-  console.log(`Cart quantity: ${cartQuant += 3}`)
-};
 
-function reset() {
-  console.log(`Cart quantity: ${cartQuant = 0}`)
-};
-
-let myName = 'Muminjon'
-console.log(myName);
-
-const coffee = 500;
-const bagel = 300;
-const soup = 900;
-
-let cost = coffee + (bagel * 2) + soup;
-console.log(`Cost of Food $${cost / 100}`);
