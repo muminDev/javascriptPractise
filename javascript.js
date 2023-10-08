@@ -1,9 +1,8 @@
-const displayResult = {
-  wins: 0,
-  losses: 0,
-  ties: 0
-}
-
+let displayResult = JSON.parse(localStorage.getItem('score')) || {
+    wins: 0,
+    losses: 0,
+    ties: 0,
+  };
 
 function pickUserMove(userMove) {
   let computerMove = pickComputerMove();
@@ -44,6 +43,8 @@ function pickUserMove(userMove) {
   } else if (result === 'Tie !') {
     displayResult.ties ++;
   }
+ 
+  localStorage.setItem('score', JSON.stringify(displayResult))
 
   console.log(`Computer shoose ${computerMove}.
 You shoose ${userMove}. 
@@ -73,6 +74,7 @@ function resetButton() {
   displayResult.wins = 0;
   displayResult.losses = 0;
   displayResult.ties = 0;
+  localStorage.removeItem('score');
 
   console.log(`Your score ${displayResult.wins}.
 Computer's score ${displayResult.losses}.
