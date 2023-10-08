@@ -1,3 +1,9 @@
+const displayResult = {
+  wins: 0,
+  losses: 0,
+  ties: 0
+}
+
 
 function pickUserMove(userMove) {
   let computerMove = pickComputerMove();
@@ -9,7 +15,7 @@ function pickUserMove(userMove) {
     } else if (computerMove === 'paper') {
       result = 'You lost !';
     } else {
-      result = `You won. Good job !`
+      result = `You won !`
     }
   } 
     else if (userMove === 'paper') {
@@ -18,7 +24,7 @@ function pickUserMove(userMove) {
     } else if (computerMove === 'scissors') {
       result = 'You lost !';
     } else {
-      result = 'You won. Good job !'
+      result = 'You won !'
     }
   } 
     else if (userMove === 'scissors') {
@@ -27,14 +33,28 @@ function pickUserMove(userMove) {
     } else if (computerMove === 'rock') {
       result = 'You lost !';
     } else {
-      result = 'You won. Good job !'
+      result = 'You won !'
     }
+  }
+
+  if (result === 'You won !') {
+    displayResult.wins ++;
+  } else if (result === 'You lost !') {
+    displayResult.losses ++;
+  } else if (result === 'Tie !') {
+    displayResult.ties ++;
   }
 
   console.log(`Computer shoose ${computerMove}.
 You shoose ${userMove}. 
-${result}`)
+${result}`);
+
+console.log(`Your score ${displayResult.wins}.
+Computer's score ${displayResult.losses}.
+Ties ${displayResult.ties}`)
 }
+
+    
 
 function pickComputerMove() {
   let number = Math.random(); 
@@ -48,4 +68,3 @@ function pickComputerMove() {
   }
   return computerMove;
 };
-
