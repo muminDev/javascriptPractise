@@ -68,3 +68,13 @@ function pickComputerMove() {
   }
   return computerMove;
 };
+
+function resetButton() {
+  displayResult.wins = 0;
+  displayResult.losses = 0;
+  displayResult.ties = 0;
+
+  console.log(`Your score ${displayResult.wins}.
+Computer's score ${displayResult.losses}.
+Ties ${displayResult.ties}`)
+}
