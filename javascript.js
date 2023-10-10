@@ -45,7 +45,13 @@ function pickUserMove(userMove) {
   }
  
   localStorage.setItem('score', JSON.stringify(displayResult))
-
+  
+  document.querySelector('.result').innerHTML = result
+  document.querySelector('.choice').innerHTML = `You choose ${userMove} --- Computer choose ${computerMove}`
+  document.querySelector('.general-score').innerHTML = `Your score ${displayResult.wins}.
+    Computer's score ${displayResult.losses}.
+    Ties ${displayResult.ties}`
+  
   console.log(`Computer shoose ${computerMove}.
 You shoose ${userMove}. 
 ${result}`);
@@ -54,8 +60,6 @@ console.log(`Your score ${displayResult.wins}.
 Computer's score ${displayResult.losses}.
 Ties ${displayResult.ties}`)
 }
-
-    
 
 function pickComputerMove() {
   let number = Math.random(); 
@@ -74,6 +78,10 @@ function resetButton() {
   displayResult.wins = 0;
   displayResult.losses = 0;
   displayResult.ties = 0;
+  document.querySelector('.general-score').innerHTML = `Your score ${displayResult.wins}.
+    Computer's score ${displayResult.losses}.
+    Ties ${displayResult.ties}`
+
   localStorage.removeItem('score');
 
   console.log(`Your score ${displayResult.wins}.
