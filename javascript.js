@@ -4,6 +4,8 @@ let displayResult = JSON.parse(localStorage.getItem('score')) || {
     ties: 0,
   };
 
+  updateScoreElement();
+  
 function pickUserMove(userMove) {
   let computerMove = pickComputerMove();
   let result = '';
@@ -48,9 +50,7 @@ function pickUserMove(userMove) {
   
   document.querySelector('.result').innerHTML = result
   document.querySelector('.choice').innerHTML = `You choose ${userMove} --- Computer choose ${computerMove}`
-  document.querySelector('.general-score').innerHTML = `Your score ${displayResult.wins}.
-    Computer's score ${displayResult.losses}.
-    Ties ${displayResult.ties}`
+  updateScoreElement();
   
   console.log(`Computer shoose ${computerMove}.
 You shoose ${userMove}. 
@@ -61,6 +61,12 @@ Computer's score ${displayResult.losses}.
 Ties ${displayResult.ties}`)
 }
 
+function updateScoreElement() {
+  document.querySelector('.general-score').innerHTML = `Your score ${displayResult.wins}.
+  Computer's score ${displayResult.losses}.
+  Ties ${displayResult.ties}` 
+}
+    
 function pickComputerMove() {
   let number = Math.random(); 
   let computerMove = ''
@@ -78,10 +84,9 @@ function resetButton() {
   displayResult.wins = 0;
   displayResult.losses = 0;
   displayResult.ties = 0;
-  document.querySelector('.general-score').innerHTML = `Your score ${displayResult.wins}.
-    Computer's score ${displayResult.losses}.
-    Ties ${displayResult.ties}`
 
+  updateScoreElement();
+  
   localStorage.removeItem('score');
 
   console.log(`Your score ${displayResult.wins}.
