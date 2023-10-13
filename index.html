@@ -8,17 +8,22 @@
   <title>Rock Paper Scissors</title>
 </head>
 <body>
-  <h3>'Rock Paper Scissors' Game</h3>
+  <h1 class="title">Rock Paper Scissors</h1>
   <div class="buttons">
-    <button onclick="pickUserMove('rock')">Rock</button>
-    <button onclick="pickUserMove('paper')">Paper</button>
-    <button onclick="pickUserMove('scissors')">Scissors</button>
+    <button onclick="pickUserMove('rock')">
+      <img src="emojies/rock-emoji.png" 
+        alt="emoji of rock"
+        class="rock-emoji">
+    </button>
+   
+    <button onclick="pickUserMove('paper')"><img src="emojies/paper-emoji.png" alt="emoji of paper"></button>
+    <button onclick="pickUserMove('scissors')"><img src="emojies/scissors-emoji.png" alt="emoji of scissors"></button>
     
   </div>
-  <p class="result"></p>
-  <p class="choice"></p>
-  <p class="general-score"></p>
-  <button onclick="resetButton()">Reset</button>
-  <p>You can see the result of the game on the <code>console</code></p>
+    <p class="result score-texts"></p>
+    <p class="choice score-texts"></p>
+    <p class="general-score score-texts"></p>
+    <button onclick="resetButton()"
+      class="reset-button">Reset Score</button>
 </body>
 </html>

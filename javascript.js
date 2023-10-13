@@ -3,8 +3,6 @@ let displayResult = JSON.parse(localStorage.getItem('score')) || {
     losses: 0,
     ties: 0,
   };
-
-  updateScoreElement();
   
 function pickUserMove(userMove) {
   let computerMove = pickComputerMove();
@@ -49,16 +47,14 @@ function pickUserMove(userMove) {
   localStorage.setItem('score', JSON.stringify(displayResult))
   
   document.querySelector('.result').innerHTML = result
-  document.querySelector('.choice').innerHTML = `You choose ${userMove} --- Computer choose ${computerMove}`
+  document.querySelector('.choice').innerHTML = 
+    `You <img src="emojies/${userMove}-emoji.png" 
+    alt="emoji of ${userMove}"
+    class="move-icon">
+    <img src="emojies/${computerMove}-emoji.png" 
+    alt="emoji of ${computerMove}"
+    class="move-icon"> Computer`
   updateScoreElement();
-  
-  console.log(`Computer shoose ${computerMove}.
-You shoose ${userMove}. 
-${result}`);
-
-console.log(`Your score ${displayResult.wins}.
-Computer's score ${displayResult.losses}.
-Ties ${displayResult.ties}`)
 }
 
 function updateScoreElement() {
