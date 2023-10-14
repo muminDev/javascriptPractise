@@ -2,7 +2,7 @@ let displayResult = JSON.parse(localStorage.getItem('score')) || {
     wins: 0,
     losses: 0,
     ties: 0,
-  };
+  }
   
 function pickUserMove(userMove) {
   let computerMove = pickComputerMove();
@@ -43,8 +43,6 @@ function pickUserMove(userMove) {
   } else if (result === 'Tie !') {
     displayResult.ties ++;
   }
- 
-  localStorage.setItem('score', JSON.stringify(displayResult))
   
   document.querySelector('.result').innerHTML = result
   document.querySelector('.choice').innerHTML = 
@@ -55,12 +53,8 @@ function pickUserMove(userMove) {
     alt="emoji of ${computerMove}"
     class="move-icon"> Computer`
   updateScoreElement();
-}
-
-function updateScoreElement() {
-  document.querySelector('.general-score').innerHTML = `Your score ${displayResult.wins}.
-  Computer's score ${displayResult.losses}.
-  Ties ${displayResult.ties}` 
+  console.log(updateScoreElement());
+  localStorage.setItem('score', JSON.stringify(displayResult))
 }
     
 function pickComputerMove() {
@@ -82,10 +76,12 @@ function resetButton() {
   displayResult.ties = 0;
 
   updateScoreElement();
-  
+  console.log(updateScoreElement());
   localStorage.removeItem('score');
+}
 
-  console.log(`Your score ${displayResult.wins}.
-Computer's score ${displayResult.losses}.
-Ties ${displayResult.ties}`)
+function updateScoreElement() {
+  document.querySelector('.general-score').innerHTML = `Your score ${displayResult.wins}.
+  Computer's score ${displayResult.losses}.
+  Ties ${displayResult.ties}` 
 }
