@@ -24,13 +24,15 @@ body {
   cursor: pointer;
 }
 
-.reset-button {
+.reset-button,
+.css-buttons {
   border: none;
   border-radius: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 500;
   padding: 10px 15px;
+  margin-right: 10px;
   cursor: pointer;
 }
 

@@ -85,3 +85,25 @@ function updateScoreElement() {
   Computer's score ${displayResult.losses}.
   Ties ${displayResult.ties}` 
 }
+
+let isPlaying = false;
+let intervalId;
+let autoPlayValue = document.querySelector('.auto-play-button');
+let butValue = autoPlayValue.innerHTML;
+
+function autoPlay() {
+  if (!isPlaying && butValue === 'Auto Play') {
+    autoPlayValue.innerHTML = 'Stop Play'
+    intervalId = setInterval(
+      function(){
+        const computerMove = pickComputerMove()
+        pickUserMove(computerMove);
+      },
+      1000);
+    isPlaying = true;
+  } else {
+    autoPlayValue.innerHTML = 'Auto Play'
+    clearInterval(intervalId);
+    isPlaying = false;
+  }
+}
