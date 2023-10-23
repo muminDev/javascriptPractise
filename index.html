@@ -9,24 +9,31 @@
 <body>
   <h1 class="title">Rock Paper Scissors</h1>
   <div class="buttons">
-    <button onclick="pickUserMove('rock')">
+    <button class="rock-button">
       <img src="emojies/rock-emoji.png" 
         alt="emoji of rock"
         class="rock-emoji">
     </button>
    
-    <button onclick="pickUserMove('paper')"><img src="emojies/paper-emoji.png" alt="emoji of paper"></button>
-    <button onclick="pickUserMove('scissors')"><img src="emojies/scissors-emoji.png" alt="emoji of scissors"></button>
+    <button class="paper-button">
+      <img src="emojies/paper-emoji.png" 
+        alt="emoji of paper">
+    </button>
+
+    <button class="scissors-button">
+      <img src="emojies/scissors-emoji.png" 
+        alt="emoji of scissors">
+    </button>
     
   </div>
   <p class="result score-texts"></p>
   <p class="choice score-texts"></p>
   <p class="general-score score-texts"></p>
-  <button onclick="resetButton()"
+  <button
     class="reset-button">Reset Score</button>
   <button
     class="css-buttons auto-play-button"
-    onclick="autoPlay()">Auto Play</button>
+  >Auto Play</button>
   <script src="javascript.js"></script>
 </body>
 </html>

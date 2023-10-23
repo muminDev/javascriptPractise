@@ -3,7 +3,20 @@ let displayResult = JSON.parse(localStorage.getItem('score')) || {
     losses: 0,
     ties: 0,
   }
-  
+// Adding eventListeners here for rock, paper and scissors buttons
+  document.querySelector('.rock-button')
+    .addEventListener('click', () => {
+      pickUserMove('rock')
+    });
+  document.querySelector('.paper-button')
+    .addEventListener('click', () => {
+      pickUserMove('paper')
+    });
+  document.querySelector('.scissors-button')
+    .addEventListener('click', () => {
+      pickUserMove('scissors')
+    });
+
 function pickUserMove(userMove) {
   let computerMove = pickComputerMove();
   let result = '';
@@ -69,7 +82,11 @@ function pickComputerMove() {
   }
   return computerMove;
 };
-
+// Adding eventListener for reset button
+document.querySelector('.reset-button')
+  .addEventListener('click', () => {
+    resetButton();
+  });
 function resetButton() {
   displayResult.wins = 0;
   displayResult.losses = 0;
@@ -91,6 +108,11 @@ let intervalId;
 let autoPlayValue = document.querySelector('.auto-play-button');
 let butValue = autoPlayValue.innerHTML;
 
+// Adding eventListener for AutoPlay button
+document.querySelector('.auto-play-button')
+  .addEventListener('click', () => {
+    autoPlay();
+  });
 function autoPlay() {
   if (!isPlaying && butValue === 'Auto Play') {
     autoPlayValue.innerHTML = 'Stop Play'
