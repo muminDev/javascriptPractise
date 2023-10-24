@@ -16,6 +16,16 @@ let displayResult = JSON.parse(localStorage.getItem('score')) || {
     .addEventListener('click', () => {
       pickUserMove('scissors')
     });
+  
+document.body.addEventListener('keydown', (event) => { 
+  if (event.key === 'r') {
+    pickUserMove('rock');
+  } else if (event.key === 'p') {
+    pickUserMove('paper');
+  } else if (event.key === 's') {
+    pickUserMove('scissors');
+  }
+});
 
 function pickUserMove(userMove) {
   let computerMove = pickComputerMove();
@@ -93,13 +103,12 @@ function resetButton() {
   displayResult.ties = 0;
 
   updateScoreElement();
-  console.log(updateScoreElement());
   localStorage.removeItem('score');
 }
 
 function updateScoreElement() {
-  document.querySelector('.general-score').innerHTML = `Your score ${displayResult.wins}.
-  Computer's score ${displayResult.losses}.
+  document.querySelector('.general-score').innerHTML = `Your score > ${displayResult.wins} ---
+  ${displayResult.losses} < Computer's score.
   Ties ${displayResult.ties}` 
 }
 
@@ -129,3 +138,4 @@ function autoPlay() {
     isPlaying = false;
   }
 }
+
