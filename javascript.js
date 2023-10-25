@@ -24,6 +24,10 @@ document.body.addEventListener('keydown', (event) => {
     pickUserMove('paper');
   } else if (event.key === 's') {
     pickUserMove('scissors');
+  } else if (event.key === 'a') {
+    autoPlay();
+  } else if (event.key === 'Backspace') {
+    resetButton();
   }
 });
 
@@ -98,13 +102,18 @@ document.querySelector('.reset-button')
     resetButton();
   });
 function resetButton() {
+  const userConfirmed = window.confirm("Do you want to reset the score?");
+if (userConfirmed) {
+  // User clicked "Yes"
   displayResult.wins = 0;
   displayResult.losses = 0;
   displayResult.ties = 0;
 
   updateScoreElement();
-  localStorage.removeItem('score');
-}
+  localStorage.removeItem('score');} else {
+  // User clicked "No" or closed the dialog
+  alert("Ok, I got you");
+  }};
 
 function updateScoreElement() {
   document.querySelector('.general-score').innerHTML = `Your score > ${displayResult.wins} ---
@@ -122,6 +131,7 @@ document.querySelector('.auto-play-button')
   .addEventListener('click', () => {
     autoPlay();
   });
+
 function autoPlay() {
   if (!isPlaying && butValue === 'Auto Play') {
     autoPlayValue.innerHTML = 'Stop Play'
