@@ -4,7 +4,7 @@ if you win you get one point else computer gets one point.
 
 While playing you can use Key buttons on the keyboard:
 r - for choosing 'rock'<br>
-p - for choosing 'paper'
-s - for choosing 'scissors'
-a - for starting autoplay
-Backspace - for resetting the score
+p - for choosing 'paper'<br>
+s - for choosing 'scissors'<br>
+a - for starting autoplay<br>
+Backspace - for resetting the score<br>
